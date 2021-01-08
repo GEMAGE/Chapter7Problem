@@ -1,0 +1,50 @@
+# Chapter7Problem
+import java.util.Scanner;
+public class ComputeLoan {
+	public static void sort(String[]names,int[]grades) {
+		int len=grades.length;
+		for(int i=0;i<len-1;++i) {
+			int maxGrade=grades[i];
+			String maxName=names[i];
+			int maxGradePosition=i;
+			for(int j=i+1;j<len;++j) {
+				if(maxGrade<grades[j]) {
+					maxGrade=grades[j];
+					maxName=names[j];
+					maxGradePosition=j;
+				}
+			}
+			if(maxGrade!=grades[i]) {
+				int tempGrade=grades[i];
+				grades[i]=grades[maxGradePosition];
+				grades[maxGradePosition]=tempGrade;
+				String tempName=names[i];
+				names[i]=names[maxGradePosition];
+				names[maxGradePosition]=tempName;
+			}
+		}
+	}
+	public static void printNameAndGrade(String[]names,int[]grades) {
+		int len=grades.length;
+		for(int i=0;i<len;++i) {
+			System.out.println(names[i]+" : "+grades[i]);
+		}
+	}
+    public static void main(String[] args) {
+    	Scanner input=new Scanner(System.in);
+		System.out.print("Enter the total of students: ");
+		int totalStudents=input.nextInt();
+		String[]names=new String[totalStudents];
+		int[]grades=new int[totalStudents];
+		
+		for(int i=0;i<totalStudents;++i) {
+			System.out.print("Enter name and grade: ");
+			names[i]=input.next();
+			grades[i]=input.nextInt();
+		}
+		
+		printNameAndGrade(names,grades);
+		sort(names,grades);
+		printNameAndGrade(names,grades);
+	}
+}
