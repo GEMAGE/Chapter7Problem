@@ -1,0 +1,20 @@
+# Chapter7Problem
+
+public class ComputeLoan {
+	
+    public static void main(String[]  args) {
+    	boolean[] openClose=new boolean[101];//false:关，true:开
+    	for(int i=1;i<=100;++i)openClose[i]=false;
+    	for(int i=1;i<=100;++i) {
+    		for(int j=1;j<=i;++j) {
+    			if(i%j==0) {
+    				if(openClose[i]==false)openClose[i]=true;
+    				else openClose[i]=false;
+    			}
+    		}
+    	}
+    	for(int i=1;i<=100;++i) {
+    		if(openClose[i])System.out.print(i+" ");
+    	}
+	}
+}
