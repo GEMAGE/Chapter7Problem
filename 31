@@ -1,0 +1,55 @@
+# Chapter7Problem
+import java.util.Scanner;
+public class ComputeLoan {
+	public static int[] merge(int[]list1,int[]list2) {
+		int lenList1=list1.length;
+		int lenList2=list2.length;
+		int iList1=0;
+		int iList2=0;
+		int[]newList=new int[lenList1+lenList2];
+		for(int i=0;i<lenList1+lenList2;++i) {
+			if(iList1<lenList1 && iList2<lenList2) {
+				if(list1[iList1]<list2[iList2]) {
+					newList[i]=list1[iList1];
+					iList1++;
+				}
+				else {
+					newList[i]=list2[iList2];
+					iList2++;
+				}
+			}
+			else {
+				if(iList1<lenList1) {
+					newList[i]=list1[iList1];
+					iList1++;
+				}
+				else {
+					newList[i]=list2[iList2];
+					iList2++;
+				}
+			}
+		}
+		return newList;
+	}
+    public static void printArray(int[]array) {
+    	int len=array.length;
+    	for(int i=0;i<len;++i) {
+    		System.out.print(array[i]+" ");
+    	}
+    	System.out.println("");
+    }
+	public static void main(String[]  args) {
+    	Scanner input=new Scanner(System.in);
+    	System.out.println("Enter list1: ");
+    	int lenList1=input.nextInt();
+    	int[]list1=new int[lenList1];
+    	for(int i=0;i<list1.length;++i)list1[i]=input.nextInt();
+    	System.out.println("Enter list2: ");
+    	int lenList2=input.nextInt();
+    	int[]list2=new int[lenList2];
+    	for(int i=0;i<list2.length;++i)list2[i]=input.nextInt();
+    	
+    	int[]newList=merge(list1,list2);
+    	printArray(newList);
+	}
+}
