@@ -1,0 +1,32 @@
+# Chapter7Problem
+import java.util.Scanner;
+public class ComputeLoan {
+	
+    public static void main(String[] args) {
+		int[]array=new int[10];
+		System.out.print("Enter ten numbers: ");
+		Scanner input=new Scanner(System.in);
+		
+		for(int i=0;i<10;++i) {
+			array[i]=input.nextInt();
+		}
+		
+		int[]counts=new int[10];
+		int count=0;
+		for(int i=0;i<10;++i) {
+			int flag=1;
+			int j=0;
+			for(j=0;j<count;++j) {
+				if(counts[j]==array[i]) {
+					flag=0;
+					break;
+				}
+			}
+			if(flag==1) {
+				counts[count]=array[i];
+				count++;
+			}
+		}
+		for(int i=0;i<count;++i)System.out.print(counts[i]+" ");
+	}
+}
