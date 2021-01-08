@@ -1,0 +1,25 @@
+# Chapter7Problem
+public class ComputeLoan {
+	
+    public static void main(String[]  args) {
+    	String[]numbers= {"2","3","4","5","6","7","8","9","10","jack","Quess","king","Ace"};
+    	String[]flowerColor= {"Diamonds","Hearts","Clubs","Spades"};
+    	
+    	int[]checkColor=new int[4];
+    	
+    	int count=0;
+    	int countReal=0;
+        while(true) {
+        	int randomNumber=(int)(Math.random()*13);
+        	int randomColor=(int)(Math.random()*4);
+        	if(checkColor[randomColor]==0) {
+        		System.out.println(numbers[randomNumber]+" of "+flowerColor[randomColor]);
+        		checkColor[randomColor]=1;
+        		countReal++;
+        	}
+        	count++;
+        	if(countReal==4)break;
+        }
+        System.out.println("Number of picks: "+count);
+	}
+}
