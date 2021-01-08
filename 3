@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class ComputeLoan {
+	
+    public static void main(String[] args) {
+		int[]counts=new int[101];//记录1到100之间每个数出现的次数
+		System.out.print("Enter the integers between 1 and 100: ");
+		Scanner input=new Scanner(System.in);
+		
+		while(true) {
+			int number=input.nextInt();
+			if(number==0)break;
+			counts[number]++;
+		}
+		
+		for(int i=1;i<=100;++i) {
+			if(counts[i]!=0) {
+				if(counts[i]==1)
+					System.out.println(i+" occurs "+counts[i]+" time");
+				else
+					System.out.println(i+" occurs "+counts[i]+" times");
+			}
+		}
+	}
+}
